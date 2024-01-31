@@ -6,7 +6,7 @@
 /*   By: elyzouli <elyzouli@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/31 20:33:13 by elyzouli          #+#    #+#             */
-/*   Updated: 2024/01/31 03:20:15 by elyzouli         ###   ########.fr       */
+/*   Updated: 2024/01/31 23:39:48 by elyzouli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,11 +36,12 @@ void main_helper(t_stack **tmp,t_stack **tmp1)
 {
 	if (ft_lstsize(*tmp) == 3)
 		ft_sortthree(tmp);
-	else if (ft_lstsize(*tmp) < 6)
+	else if (ft_lstsize(*tmp) <= 6)
 		ft_sortfive(tmp, tmp1);
 	else if(ft_lstsize(*tmp) > 6)
 	{
 		ft_pushnonlistob(tmp, tmp1);
+		printf("test allah \n");
 		ft_9lebche9leb(tmp, tmp1);
 	}
 }

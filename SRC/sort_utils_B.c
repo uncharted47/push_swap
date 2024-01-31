@@ -6,7 +6,7 @@
 /*   By: elyzouli <elyzouli@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/27 16:55:35 by elyzouli          #+#    #+#             */
-/*   Updated: 2024/01/31 01:30:03 by elyzouli         ###   ########.fr       */
+/*   Updated: 2024/01/31 23:51:12 by elyzouli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void	ft_setpos(t_stack *currentb, t_stack *heada, t_stack *smallest,int largest)
 	}
 	else if (currentb->nb < smallest->nb)
 	{
-		currentb->posa=smallest->index - 1;
+		currentb->posa = smallest->index - 1;
 			currentb->posb = currentb->index -1;
 	}
 
@@ -69,7 +69,6 @@ void	ft_setpositions(t_stack **stack_A, t_stack **stack_B)
 		while (heada)
 		{
 			ft_setpos(currentb, heada, smallest,largest);
-			// printf("%d  posa:%d posb %d\n ",currentb->nb,currentb->posb,currentb->posa);
 			heada = heada->next;
 		}
 		currentb = currentb->next;
