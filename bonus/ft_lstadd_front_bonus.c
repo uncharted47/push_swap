@@ -1,36 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   instructions_3.c                                   :+:      :+:    :+:   */
+/*   ft_lstadd_front_bonus.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: elyzouli <elyzouli@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/12 23:21:10 by elyzouli          #+#    #+#             */
-/*   Updated: 2024/01/31 19:12:18 by elyzouli         ###   ########.fr       */
+/*   Created: 2023/11/02 14:59:12 by elyzouli          #+#    #+#             */
+/*   Updated: 2024/01/31 01:20:33 by elyzouli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "checker_bonus.h"
+#include "push_swap.h"
 
-void	rrr(t_stack **stack_A, t_stack **stack_B)
+void	ft_lstadd_front(t_stack **lst, t_stack *new)
 {
-	rra(stack_A, 0);
-	rra(stack_B, 0);
-	write(1, "rrr\n", 4);
-}
+	t_stack	*head;
 
-
-int	ft_morethantwo(t_stack *lst)
-{
-	int	i;
-
-	i = 0;
-	while (lst)
+	if (!lst || !new)
+		return ;
+	head = *lst;
+	if (!(*lst))
 	{
-		if (i >= 2)
-			return (i);
-		i++;
-		lst = lst->next;
+		*lst = new;
+		new->next = NULL;
+		new->prev = NULL;
 	}
-	return (i);
+	else
+	{
+		new->next = *lst;
+		new->prev = NULL;
+		head->prev = new;
+		*lst = new;
+	}
 }

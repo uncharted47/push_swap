@@ -1,36 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   instructions_3.c                                   :+:      :+:    :+:   */
+/*   ft_lstadd_back_bonus.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: elyzouli <elyzouli@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/12 23:21:10 by elyzouli          #+#    #+#             */
-/*   Updated: 2024/01/31 19:12:18 by elyzouli         ###   ########.fr       */
+/*   Created: 2023/11/02 15:15:16 by elyzouli          #+#    #+#             */
+/*   Updated: 2024/01/28 16:22:05 by elyzouli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "checker_bonus.h"
+#include "push_swap.h"
 
-void	rrr(t_stack **stack_A, t_stack **stack_B)
+void	ft_setrotations(t_stack *stack)
 {
-	rra(stack_A, 0);
-	rra(stack_B, 0);
-	write(1, "rrr\n", 4);
+	if (!stack)
+		return ;
+	stack->ra = 0;
+	stack->rra = 0;
+	stack->rb = 0;
+	stack->rrb = 0;
+	stack->rrr = 0;
+	stack->rr = 0;
 }
 
-
-int	ft_morethantwo(t_stack *lst)
+void	ft_lstadd_back(t_stack **lst, t_stack *new)
 {
-	int	i;
+	t_stack	*last;
 
-	i = 0;
-	while (lst)
+	if (!lst)
+		return ;
+	if (!(*lst))
 	{
-		if (i >= 2)
-			return (i);
-		i++;
-		lst = lst->next;
+		ft_setrotations(new);
+		(*lst) = new;
 	}
-	return (i);
+	else
+	{
+		last = ft_lstlast(*lst);
+		last->next = new;
+		ft_setrotations(new);
+	}
 }

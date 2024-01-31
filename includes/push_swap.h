@@ -6,7 +6,7 @@
 /*   By: elyzouli <elyzouli@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/01 12:36:26 by elyzouli          #+#    #+#             */
-/*   Updated: 2024/01/31 18:38:58 by elyzouli         ###   ########.fr       */
+/*   Updated: 2024/01/31 19:16:41 by elyzouli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 # include <limits.h>
 # include <stdint.h>
-# include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
 
@@ -84,11 +83,11 @@ t_stack				*ft_lstlast(t_stack *lst);
 void				ft_lstadd_front(t_stack **lst, t_stack *new);
 int					ft_lstsize(t_stack *lst);
 void				ft_lstiter(t_stack *lst, void (*f)(int));
-t_stack				*ft_lstmap(t_stack *lst, int (*f)(int),
-						void (*del)(void *));
 t_stack				*findthesmallest(t_stack *stack_A);
 long long			ft_atoi(char *num);
 char				**failsafe(char **split);
+void				ft_reset(t_stack *head);
+void				ft_lstdelone(t_stack *lst);
 void				ft_pushnonlistob(t_stack **stack_A, t_stack **stack_B);
 t_stack				*ft_lstnew(int content);
 char				**failsafe(char **str);
@@ -98,7 +97,6 @@ int					ft_checkdup(t_stack *list, int number);
 int					ft_checksign(char *number);
 int					checkvalidnumber(char *number);
 int					ft_strlen(const char *str);
-int					ft_printf(const char *str, ...);
 t_stack				*parse(t_stack *stack, char **str);
 void				ft_lstdelone(t_stack *lst);
 void				ft_lstclear(t_stack **lst);
@@ -127,6 +125,5 @@ int					*ft_fromstacktoarr(t_stack *stack_A);
 void				print_stack(const char *label, t_stack *stack);
 t_lis				*ft_lengthsub(int len, int *arr);
 void				ft_9lebche9leb(t_stack **stack_A, t_stack **stack_B);
-// t_stack				*ft_find_the_cheapest(t_stack **stack_A,
-// t_stack **stack_B);
+
 #endif

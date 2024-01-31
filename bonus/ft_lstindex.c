@@ -1,36 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   instructions_3.c                                   :+:      :+:    :+:   */
+/*   ft_lstindex.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: elyzouli <elyzouli@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/12 23:21:10 by elyzouli          #+#    #+#             */
-/*   Updated: 2024/01/31 19:12:18 by elyzouli         ###   ########.fr       */
+/*   Created: 2024/01/15 03:13:36 by elyzouli          #+#    #+#             */
+/*   Updated: 2024/01/31 06:48:27 by elyzouli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "checker_bonus.h"
+#include "push_swap.h"
 
-void	rrr(t_stack **stack_A, t_stack **stack_B)
-{
-	rra(stack_A, 0);
-	rra(stack_B, 0);
-	write(1, "rrr\n", 4);
-}
-
-
-int	ft_morethantwo(t_stack *lst)
+int	ft_lstindex(t_stack *lst)
 {
 	int	i;
+	int	size;
+	int	largest;
 
-	i = 0;
+	largest = lst->nb;
+	size = ft_lstsize(lst);
+	i = 1;
 	while (lst)
 	{
-		if (i >= 2)
-			return (i);
-		i++;
+		lst->index = i;
+		if (i <= (size / 2))
+			lst->above_mediun = TRUE;
+		else
+			lst->above_mediun = FALSE;
+		if (lst->nb > largest)
+			largest = lst->nb;
 		lst = lst->next;
+		i++;
 	}
-	return (i);
+	return (largest);
 }

@@ -1,36 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   instructions_3.c                                   :+:      :+:    :+:   */
+/*   ft_isdigit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: elyzouli <elyzouli@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/12 23:21:10 by elyzouli          #+#    #+#             */
-/*   Updated: 2024/01/31 19:12:18 by elyzouli         ###   ########.fr       */
+/*   Created: 2023/10/30 21:04:14 by elyzouli          #+#    #+#             */
+/*   Updated: 2024/01/31 19:19:20 by elyzouli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "checker_bonus.h"
 
-void	rrr(t_stack **stack_A, t_stack **stack_B)
+int	ft_isdigit(int car)
 {
-	rra(stack_A, 0);
-	rra(stack_B, 0);
-	write(1, "rrr\n", 4);
-}
-
-
-int	ft_morethantwo(t_stack *lst)
-{
-	int	i;
-
-	i = 0;
-	while (lst)
-	{
-		if (i >= 2)
-			return (i);
-		i++;
-		lst = lst->next;
-	}
-	return (i);
+	return (car >= '0' && car <= '9');
 }

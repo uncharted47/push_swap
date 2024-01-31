@@ -1,36 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   instructions_3.c                                   :+:      :+:    :+:   */
+/*   ft_lstmap_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: elyzouli <elyzouli@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/12 23:21:10 by elyzouli          #+#    #+#             */
-/*   Updated: 2024/01/31 19:12:18 by elyzouli         ###   ########.fr       */
+/*   Created: 2023/11/07 18:12:21 by elyzouli          #+#    #+#             */
+/*   Updated: 2024/01/12 06:16:59 by elyzouli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "checker_bonus.h"
+#include "push_swap.h"
 
-void	rrr(t_stack **stack_A, t_stack **stack_B)
+t_stack	*ft_lstmap(t_stack *lst, int (*f)(int), void (*del)(void *))
 {
-	rra(stack_A, 0);
-	rra(stack_B, 0);
-	write(1, "rrr\n", 4);
-}
+	t_stack	*new;
+	t_stack	*new_list;
 
-
-int	ft_morethantwo(t_stack *lst)
-{
-	int	i;
-
-	i = 0;
+	if (!lst || !f || !del)
+		return (NULL);
+	new_list = NULL;
 	while (lst)
 	{
-		if (i >= 2)
-			return (i);
-		i++;
+		new = ft_lstnew(f(lst->nb));
+		if (!new)
+		{
+			ft_lstclear(&new_list);
+			return (NULL);
+		}
+		ft_lstadd_back(&new_list, new);
 		lst = lst->next;
 	}
-	return (i);
+	return (new_list);
 }

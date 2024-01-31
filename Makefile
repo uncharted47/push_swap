@@ -1,10 +1,10 @@
 NAME = push_swap
-NAME_BONUS = checker_linux_bonus
+NAME_BONUS = checker
 CC = cc
 CFLAGS = -Wall -Wextra -Werror -g -fsanitize=address
 SRC_DIR = SRC
 GNL_DIR = GNL
-BONUS = GNL
+BONUS = bonus
 INCLUDES_DIR = includes
 SRC_FILES = $(wildcard $(SRC_DIR)/*.c)
 OBJ = $(SRC_FILES:.c=.o)
@@ -23,7 +23,7 @@ $(NAME): $(OBJ)
 bonus: $(NAME_BONUS)
 
 $(NAME_BONUS) : $(OBJBNS)
-	$(CC) $(CFLAGS) $(OBJBNS)  -I$(INCLUDES_DIR) -o $(NAME_BONUS)
+	$(CC) $(CFLAGS) $(OBJBNS)  -o $(NAME_BONUS)
 
 
 clean:
