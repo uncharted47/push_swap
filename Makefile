@@ -1,8 +1,16 @@
 NAME = push_swap
+NAME_BONUS = checker_linux_bonus
 CC = cc
 CFLAGS = -Wall -Wextra -Werror -g -fsanitize=address
-SRC = $(wildcard *.c)
-OBJ = $(SRC:.c=.o)
+SRC_DIR = SRC
+GNL_DIR = GNL
+BONUS = GNL
+INCLUDES_DIR = includes
+SRC_FILES = $(wildcard $(SRC_DIR)/*.c)
+OBJ = $(SRC_FILES:.c=.o)
+GNL_FILES = $(wildcard $(GNL_DIR)/*.c)
+SRCBNS_FILES = $(wildcard $(BONUS)/*.c) $(GNL_FILES)
+OBJBNS = $(SRCBNS_FILES:.c=.o)
 
 all: $(NAME)
 
@@ -10,14 +18,20 @@ $(NAME): $(OBJ)
 	$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
 
 %.o: %.c
-	$(CC) $(CFLAGS) -c $< -o $@
+	$(CC) $(CFLAGS) -I$(INCLUDES_DIR) -c $< -o $@
+
+bonus: $(NAME_BONUS)
+
+$(NAME_BONUS) : $(OBJBNS)
+	$(CC) $(CFLAGS) $(OBJBNS)  -I$(INCLUDES_DIR) -o $(NAME_BONUS)
+
 
 clean:
-	rm -f $(OBJ)
+	rm -f $(OBJ) $(OBJBNS)
 
 fclean: clean
-	rm -f $(NAME)
+	rm -f $(NAME) $(NAME_BONUS)
 
 re: fclean all
 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re bonus

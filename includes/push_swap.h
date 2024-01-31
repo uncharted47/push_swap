@@ -6,7 +6,7 @@
 /*   By: elyzouli <elyzouli@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/01 12:36:26 by elyzouli          #+#    #+#             */
-/*   Updated: 2024/01/31 06:50:54 by elyzouli         ###   ########.fr       */
+/*   Updated: 2024/01/31 18:38:58 by elyzouli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ void				ft_sortthree(t_stack **stack_A);
 void				ft_sort(t_stack **stack_A, t_stack **stack_B);
 void				*ft_calloc(size_t elementCount, size_t elementSize);
 int					ft_lstindex(t_stack *lst);
+int					ft_strncmp(const char *s1, const char *s2, size_t n);
 void				movethesmallest(t_stack **stack_A);
 void				*ft_memset(void *mem, int c, size_t n);
 int					ft_save(int length, int flag);
@@ -64,7 +65,6 @@ int					ft_isinthesub(int number, int *arr, int length);
 int					ft_validlisstack(t_stack *a, int *arr);
 int					ft_sorted(t_stack *a);
 void				ft_reset(t_stack *head);
-int					ft_strlen(const char *str);
 int					ft_findlargest(t_stack *stack_A);
 void				ft_exit(char *message);
 void				ft_setpositions(t_stack **stack_A, t_stack **stack_B);
