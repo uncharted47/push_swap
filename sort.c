@@ -6,7 +6,7 @@
 /*   By: elyzouli <elyzouli@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 16:58:29 by elyzouli          #+#    #+#             */
-/*   Updated: 2024/01/31 01:12:40 by elyzouli         ###   ########.fr       */
+/*   Updated: 2024/01/31 02:16:58 by elyzouli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,8 +84,6 @@ void	ft_9lebche9leb(t_stack **stack_A, t_stack **stack_B)
 		head = ft_find_the_cheapest(*stack_B);
 		if (!head)
 			return ;
-			// printf("%d \n || %d \n",head->nb,head->rra);
-			// sleep(10);
 		while ((head->rr > 0 && head->rr--))
 			rr(stack_A, stack_B);
 		while ((head->rrr > 0) && head->rrr--)

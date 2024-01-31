@@ -6,7 +6,7 @@
 /*   By: elyzouli <elyzouli@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/01 12:36:26 by elyzouli          #+#    #+#             */
-/*   Updated: 2024/01/31 02:01:17 by elyzouli         ###   ########.fr       */
+/*   Updated: 2024/01/31 02:38:46 by elyzouli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ int					ft_isdigit(int car);
 void				ft_sortthree(t_stack **stack_A);
 void				ft_sort(t_stack **stack_A, t_stack **stack_B);
 void				*ft_calloc(size_t elementCount, size_t elementSize);
-int				ft_lstindex(t_stack *lst);
+int					ft_lstindex(t_stack *lst);
 void				movethesmallest(t_stack **stack_A);
 void				*ft_memset(void *mem, int c, size_t n);
 int					ft_save(int length, int flag);
@@ -64,14 +64,14 @@ int					ft_isinthesub(int number, int *arr, int length);
 int					ft_validlisstack(t_stack *a, int *arr);
 int					ft_sorted(t_stack *a);
 void				ft_reset(t_stack *head);
-int	ft_strlen(const char *str);
+int					ft_strlen(const char *str);
 int					ft_findlargest(t_stack *stack_A);
-void	ft_exit(char *message);
+void				ft_exit(char *message);
 void				ft_setpositions(t_stack **stack_A, t_stack **stack_B);
 void				*ft_bzero(void *mem, size_t n);
 t_stack				*findthelargest(t_stack *stack_A);
 void				ft_setpos(t_stack *current_B, t_stack *head_A,
-						t_stack *smallest,int largest);
+						t_stack *smallest, int largest);
 void				ft_setcost(t_stack *stack_A, t_stack *stack_B);
 void				ft_setpositions(t_stack **stack_A, t_stack **stack_B);
 void				setrrr(t_stack *stack);
@@ -115,6 +115,8 @@ void				pb(t_stack **stack_A, t_stack **stack_B, int flag);
 void				rr(t_stack **stack_A, t_stack **stack_B);
 void				rra(t_stack **stack_A, int flag);
 void				rrb(t_stack **stack_B, int flag);
+void				bubbleSort(int *arr, int length);
+int					ft_morethantwo(t_stack *lst);
 void				rrr(t_stack **stack_A, t_stack **stack_B);
 int					*ft_lis(int *arr, int len);
 int					ft_save(int length, int flag);

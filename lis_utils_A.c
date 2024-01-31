@@ -6,7 +6,7 @@
 /*   By: elyzouli <elyzouli@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/27 16:40:08 by elyzouli          #+#    #+#             */
-/*   Updated: 2024/01/31 02:00:43 by elyzouli         ###   ########.fr       */
+/*   Updated: 2024/01/31 02:38:22 by elyzouli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,24 +55,34 @@ int	ft_sorted(t_stack *a)
 	return (1);
 }
 
+
 void	ft_pushnonlistob(t_stack **stack_A, t_stack **stack_B)
 {
 	int	len;
 	int	*arr;
+	int	*sorted;
 	int	i;
 
-	i = 0;
-	// movethesmallest(stack_A);
+	i = ft_lstsize(*stack_A) / 2;
 	len = ft_lstsize(*stack_A);
 	arr = ft_lis(ft_fromstacktoarr(*stack_A), len);
+	sorted = ft_fromstacktoarr(*stack_A);
+	bubbleSort(sorted, len);
 	len = ft_save(0, 0);
-	while ((*stack_A && ft_validlisstack(*stack_A, arr) )|| (!ft_sorted(*stack_A)))
+	while ((*stack_A && ft_validlisstack(*stack_A, arr))
+		|| (!ft_sorted(*stack_A)))
 	{
-		if (!ft_isinthesub((*stack_A)->nb, arr, len))
-			pb(stack_A, stack_B, 1);
-		else if (ft_isinthesub((*stack_A)->nb, arr, len))
+		if (ft_isinthesub((*stack_A)->nb, arr, len))
 			ra(stack_A, 1);
+		else if ((*stack_A)->nb > sorted[i])
+			pb(stack_A, stack_B, 1);
+		else
+		{
+			pb(stack_A, stack_B, 1);
+			rb(stack_B, 1);
+		}
 	}
+	free(sorted);
 	free(arr);
 }
 

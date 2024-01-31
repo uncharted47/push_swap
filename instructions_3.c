@@ -6,7 +6,7 @@
 /*   By: elyzouli <elyzouli@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 23:21:10 by elyzouli          #+#    #+#             */
-/*   Updated: 2024/01/28 17:18:04 by elyzouli         ###   ########.fr       */
+/*   Updated: 2024/01/31 02:12:41 by elyzouli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,3 +67,19 @@ void	ft_sortfive(t_stack **stack_A, t_stack **stack_B)
 	while (ft_lstsize(*stack_B))
 		pa(stack_A,stack_B,1);
 }
+
+int	ft_morethantwo(t_stack *lst)
+{
+	int	i;
+
+	i = 0;
+	while (lst)
+	{
+		if(i >= 2)
+			return(i);
+		i++;
+		lst = lst->next;
+	}
+	return (i);
+}
+

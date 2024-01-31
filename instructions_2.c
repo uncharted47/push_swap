@@ -6,7 +6,7 @@
 /*   By: elyzouli <elyzouli@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/27 17:09:32 by elyzouli          #+#    #+#             */
-/*   Updated: 2024/01/30 20:29:19 by elyzouli         ###   ########.fr       */
+/*   Updated: 2024/01/31 02:13:18 by elyzouli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	pb(t_stack **stack_A, t_stack **stack_B, int flag)
 {
 	t_stack	*head;
 
-	if (ft_lstsize(*stack_A) < 2)
+	if (ft_morethantwo(*stack_A) < 2)
 		return ;
 	head = (*stack_A)->next;
 	ft_lstadd_front(stack_B, *stack_A);
@@ -36,7 +36,7 @@ void	pa(t_stack **stack_A, t_stack **stack_B, int flag)
 {
 	t_stack	*head;
 
-	if (ft_lstsize(*stack_A) < 2)
+	if (ft_morethantwo(*stack_A) < 2)
 		return ;
 	head = (*stack_B)->next;
 	ft_lstadd_front(stack_A, *stack_B);
@@ -53,7 +53,7 @@ void	rra(t_stack **stack_A, int flag)
 	t_stack	*back;
 	t_stack	*head;
 
-	if (ft_lstsize(*stack_A) < 2)
+	if (ft_morethantwo(*stack_A) < 2)
 		return ;
 	head = *stack_A;
 	back = *stack_A;
@@ -77,7 +77,7 @@ void	rra(t_stack **stack_A, int flag)
 
 void	rrb(t_stack **stack_B, int flag)
 {
-	if (ft_lstsize(*stack_B) < 2)
+	if (ft_morethantwo(*stack_B) < 2)
 		return ;
 	rra(stack_B, 0);
 	if (flag)

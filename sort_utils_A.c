@@ -6,7 +6,7 @@
 /*   By: elyzouli <elyzouli@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/27 16:53:26 by elyzouli          #+#    #+#             */
-/*   Updated: 2024/01/31 01:35:12 by elyzouli         ###   ########.fr       */
+/*   Updated: 2024/01/31 02:14:08 by elyzouli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,9 +69,6 @@ void	ft_setcost(t_stack *stackA, t_stack *stackB)
 
 int	ft_check(t_stack *stack)
 {
-	// if (stack->rr || stack->rrr)
-		// return (stack->ra + stack->rb + stack->rra
-		// + stack->rrb);
 	return (stack->ra + stack->rb + stack->rra + stack->rr + stack->rrr
 		+ stack->rrb);
 }

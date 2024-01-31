@@ -6,7 +6,7 @@
 /*   By: elyzouli <elyzouli@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/27 16:41:29 by elyzouli          #+#    #+#             */
-/*   Updated: 2024/01/30 23:08:01 by elyzouli         ###   ########.fr       */
+/*   Updated: 2024/01/31 02:38:35 by elyzouli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,16 +25,34 @@ int	ft_save(int length, int flag)
 		return (len);
 }
 
-void	movethesmallest(t_stack **stack_A)
-{
-	t_stack	*small;
 
-	small = findthesmallest(*stack_A);
-	while (*stack_A != small)
+void	swap(int *a, int *b)
+{
+	int	temp;
+
+	temp = *a;
+	*a = *b;
+	*b = temp;
+}
+
+void	bubbleSort(int *arr, int length)
+{
+	int	swapped;
+	int	i;
+
+	swapped = 1;
+	while (swapped)
 	{
-		if ((*stack_A)->above_mediun)
-			ra(stack_A, 1);
-		else
-			rra(stack_A, 1);
+		swapped = 0;
+		i = 0;
+		while (i < length - 1)
+		{
+			if (arr[i] > arr[i + 1])
+			{
+				swap(&arr[i], &arr[i + 1]);
+				swapped = 1;
+			}
+			i++;
+		}
 	}
 }
