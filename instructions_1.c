@@ -6,7 +6,7 @@
 /*   By: elyzouli <elyzouli@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/27 17:07:26 by elyzouli          #+#    #+#             */
-/*   Updated: 2024/01/31 02:12:47 by elyzouli         ###   ########.fr       */
+/*   Updated: 2024/01/31 06:48:14 by elyzouli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,7 @@ void	sa(t_stack **stack_A, int flag)
 	(*stack_A)->nb = (*stack_A)->next->nb;
 	(*stack_A)->next->nb = tmp;
 	if (flag)
-		write(1,"sa\n",3);
-
+		write(1, "sa\n", 3);
 }
 
 void	sb(t_stack **stack_B, int flag)
@@ -33,7 +32,7 @@ void	sb(t_stack **stack_B, int flag)
 		return ;
 	sa(stack_B, 0);
 	if (flag)
-		write(1,"sb\n",3);
+		write(1, "sb\n", 3);
 }
 
 void	ss(t_stack **stack_A, t_stack **stack_B)
@@ -42,7 +41,7 @@ void	ss(t_stack **stack_A, t_stack **stack_B)
 		return ;
 	sa(stack_A, 0);
 	sb(stack_B, 0);
-	write(1,"ss\n",3);
+	write(1, "ss\n", 3);
 }
 
 void	ra(t_stack **stack_A, int flag)
@@ -60,8 +59,7 @@ void	ra(t_stack **stack_A, int flag)
 	head->prev = last;
 	head->next = NULL;
 	if (flag)
-		write(1,"ra\n",3);
-
+		write(1, "ra\n", 3);
 }
 
 void	rb(t_stack **stack_B, int flag)
@@ -70,5 +68,5 @@ void	rb(t_stack **stack_B, int flag)
 		return ;
 	ra(stack_B, 0);
 	if (flag)
-		write(1,"rb\n",3);
+		write(1, "rb\n", 3);
 }

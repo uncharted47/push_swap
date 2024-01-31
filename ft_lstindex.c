@@ -6,7 +6,7 @@
 /*   By: elyzouli <elyzouli@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 03:13:36 by elyzouli          #+#    #+#             */
-/*   Updated: 2024/01/30 20:25:08 by elyzouli         ###   ########.fr       */
+/*   Updated: 2024/01/31 06:48:27 by elyzouli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	ft_lstindex(t_stack *lst)
 {
 	int	i;
 	int	size;
-	int largest;
+	int	largest;
 
 	largest = lst->nb;
 	size = ft_lstsize(lst);

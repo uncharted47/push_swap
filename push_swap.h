@@ -6,7 +6,7 @@
 /*   By: elyzouli <elyzouli@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/01 12:36:26 by elyzouli          #+#    #+#             */
-/*   Updated: 2024/01/31 02:38:46 by elyzouli         ###   ########.fr       */
+/*   Updated: 2024/01/31 06:50:54 by elyzouli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,7 +115,7 @@ void				pb(t_stack **stack_A, t_stack **stack_B, int flag);
 void				rr(t_stack **stack_A, t_stack **stack_B);
 void				rra(t_stack **stack_A, int flag);
 void				rrb(t_stack **stack_B, int flag);
-void				bubbleSort(int *arr, int length);
+void				bubblesort(int *arr, int length);
 int					ft_morethantwo(t_stack *lst);
 void				rrr(t_stack **stack_A, t_stack **stack_B);
 int					*ft_lis(int *arr, int len);

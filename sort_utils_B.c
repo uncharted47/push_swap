@@ -6,7 +6,7 @@
 /*   By: elyzouli <elyzouli@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/27 16:55:35 by elyzouli          #+#    #+#             */
-/*   Updated: 2024/01/31 01:30:03 by elyzouli         ###   ########.fr       */
+/*   Updated: 2024/01/31 06:48:49 by elyzouli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,25 +28,25 @@ int	ft_findlargest(t_stack *stack_A)
 	return (largest);
 }
 
-void	ft_setpos(t_stack *currentb, t_stack *heada, t_stack *smallest,int largest)
+void	ft_setpos(t_stack *currentb, t_stack *heada, t_stack *smallest,
+		int largest)
 {
 	if (currentb->nb > largest)
 	{
-		currentb->posa = smallest->index -1;
+		currentb->posa = smallest->index - 1;
 		currentb->posb = currentb->index - 1;
 	}
-	 else if ((currentb->nb > heada->nb) && (heada->nb > currentb->lastnb))
+	else if ((currentb->nb > heada->nb) && (heada->nb > currentb->lastnb))
 	{
-			currentb->lastnb = heada->nb;
-			currentb->posa = heada->index;
-			currentb->posb = currentb->index - 1;
+		currentb->lastnb = heada->nb;
+		currentb->posa = heada->index;
+		currentb->posb = currentb->index - 1;
 	}
 	else if (currentb->nb < smallest->nb)
 	{
-		currentb->posa=smallest->index - 1;
-			currentb->posb = currentb->index -1;
+		currentb->posa = smallest->index - 1;
+		currentb->posb = currentb->index - 1;
 	}
-
 }
 
 void	ft_setpositions(t_stack **stack_A, t_stack **stack_B)
@@ -54,7 +54,7 @@ void	ft_setpositions(t_stack **stack_A, t_stack **stack_B)
 	t_stack	*heada;
 	t_stack	*currentb;
 	int		largest;
-	t_stack *smallest;
+	t_stack	*smallest;
 
 	currentb = *stack_B;
 	smallest = findthesmallest(*stack_A);
@@ -68,9 +68,7 @@ void	ft_setpositions(t_stack **stack_A, t_stack **stack_B)
 		ft_reset(currentb);
 		while (heada)
 		{
-			ft_setpos(currentb, heada, smallest,largest);
-			// printf("%d  posa:%d posb %d\n ",currentb->nb,currentb->posb,currentb->posa);
-			heada = heada->next;
+			ft_setpos(currentb, heada, smallest, largest);
 		}
 		currentb = currentb->next;
 	}
