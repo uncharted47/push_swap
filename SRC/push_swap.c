@@ -6,7 +6,7 @@
 /*   By: elyzouli <elyzouli@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/31 20:33:13 by elyzouli          #+#    #+#             */
-/*   Updated: 2024/01/31 06:51:44 by elyzouli         ###   ########.fr       */
+/*   Updated: 2024/01/31 03:20:15 by elyzouli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,57 +27,31 @@ void	ft_checkspaces(char **argv)
 			|| argv[j][i] == '\r' || argv[j][i] == '\v' || argv[j][i++] == '\f')
 			number++;
 		if (ft_strlen(argv[j++]) == number)
-			ft_exit("Error: an argument is just filled with whitespaces");
+			ft_exit("Error: argument with just spaces");
 	}
 }
 
-void	movethesmallest(t_stack **stack_A)
-{
-	t_stack	*small;
 
-	small = findthesmallest(*stack_A);
-	while (*stack_A != small)
-	{
-		if ((*stack_A)->above_mediun)
-			ra(stack_A, 1);
-		else
-			rra(stack_A, 1);
-	}
-}
-
-int	reverse_sorted(t_stack *a)
+void main_helper(t_stack **tmp,t_stack **tmp1)
 {
-	while (a)
-	{
-		if (a->next && (a->nb < a->next->nb))
-			return (0);
-		a = a->next;
-	}
-	return (1);
-}
-
-void	main_helper(t_stack **tmp, t_stack **tmp1, size_t size_a)
-{
-	if (size_a == 3)
+	if (ft_lstsize(*tmp) == 3)
 		ft_sortthree(tmp);
-	else if ((size_a < 6) && (size_a > 3))
+	else if (ft_lstsize(*tmp) < 6)
 		ft_sortfive(tmp, tmp1);
-	else if (ft_lstsize(*tmp) > 6)
+	else if(ft_lstsize(*tmp) > 6)
 	{
-		if (reverse_sorted(*tmp))
-			movethesmallest(tmp);
 		ft_pushnonlistob(tmp, tmp1);
 		ft_9lebche9leb(tmp, tmp1);
 	}
 }
 
+int		*ft_fromstacktoarr(t_stack *stack_A);
 int	main(int argc, char **argv)
 {
 	t_stack	*a;
 	t_stack	*b;
 	t_stack	**tmp;
 	t_stack	**tmp1;
-	size_t	sizea;
 
 	a = NULL;
 	b = NULL;
@@ -89,10 +63,9 @@ int	main(int argc, char **argv)
 	a = parse(a, &argv[1]);
 	if (ft_sorted(a))
 		return (ft_lstclear(tmp), ft_exit("Error: Already sorted\n"), 0);
-	sizea = ft_lstsize(*tmp);
 	if (!a)
 		return (ft_exit("Allocation failed\n"), 0);
-	main_helper(tmp, tmp1, sizea);
+	main_helper(tmp,tmp1);
 	ft_lstclear(tmp);
 	return (0);
 }

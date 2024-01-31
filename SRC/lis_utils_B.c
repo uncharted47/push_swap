@@ -6,7 +6,7 @@
 /*   By: elyzouli <elyzouli@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/27 16:41:29 by elyzouli          #+#    #+#             */
-/*   Updated: 2024/01/31 18:30:41 by elyzouli         ###   ########.fr       */
+/*   Updated: 2024/01/31 02:38:35 by elyzouli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,16 +26,6 @@ int	ft_save(int length, int flag)
 }
 
 
-int	ft_strlen(const char *str)
-{
-	size_t	i;
-
-	i = 0;
-	while (str[i])
-		i++;
-	return (i);
-}
-
 void	swap(int *a, int *b)
 {
 	int	temp;
@@ -45,7 +35,7 @@ void	swap(int *a, int *b)
 	*b = temp;
 }
 
-void	bubblesort(int *arr, int length)
+void	bubbleSort(int *arr, int length)
 {
 	int	swapped;
 	int	i;

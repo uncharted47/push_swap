@@ -6,7 +6,7 @@
 /*   By: elyzouli <elyzouli@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/27 16:53:26 by elyzouli          #+#    #+#             */
-/*   Updated: 2024/01/31 06:48:35 by elyzouli         ###   ########.fr       */
+/*   Updated: 2024/01/31 02:14:08 by elyzouli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,8 +49,8 @@ t_stack	*findthelargest(t_stack *stackA)
 
 void	ft_setcost(t_stack *stackA, t_stack *stackB)
 {
-	int	sizea;
-	int	sizeb;
+	int		sizea;
+	int		sizeb;
 
 	sizea = ft_lstsize(stackA);
 	sizeb = ft_lstsize(stackB);
