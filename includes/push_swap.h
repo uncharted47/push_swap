@@ -6,7 +6,7 @@
 /*   By: elyzouli <elyzouli@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/01 12:36:26 by elyzouli          #+#    #+#             */
-/*   Updated: 2024/01/31 21:58:20 by elyzouli         ###   ########.fr       */
+/*   Updated: 2024/02/01 04:03:05 by elyzouli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,6 @@ typedef struct s_stack
 	unsigned int	rrb;
 	unsigned int	rrr;
 	int				above_mediun;
-	struct s_stack	*target_node;
-
 	struct s_stack	*next;
 }					t_stack;
 
@@ -115,7 +113,7 @@ void				pb(t_stack **stack_A, t_stack **stack_B, int flag);
 void				rr(t_stack **stack_A, t_stack **stack_B);
 void				rra(t_stack **stack_A, int flag);
 void				rrb(t_stack **stack_B, int flag);
-void				bubbleSort(int *arr, int length);
+void				bubblesort(int *arr, int length);
 int					ft_morethantwo(t_stack *lst);
 void				rrr(t_stack **stack_A, t_stack **stack_B);
 int					*ft_lis(int *arr, int len);

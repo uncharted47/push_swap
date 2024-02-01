@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: elyzouli <elyzouli@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: mehdi <mehdi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/13 00:37:05 by elyzouli          #+#    #+#             */
-/*   Updated: 2024/01/31 02:01:33 by elyzouli         ###   ########.fr       */
+/*   Updated: 2024/02/01 03:16:10 by mehdi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,13 +27,13 @@ int	ft_fillstack(t_stack **stack, char *str)
 	if (numb > INT_MAX || !ft_checkdup(*stack, numb) || checkvalidnumber(str))
 	{
 		ft_lstclear(stack);
-		ft_exit("Error: Invalid input\n");
+		ft_exit("Error:\n");
 	}
 	a = ft_lstnew(numb);
 	if (!a)
 	{
 		ft_lstclear(stack);
-		ft_exit("Allocation failed\n");
+		ft_exit("Error\n");
 	}
 	ft_lstadd_back(stack, a);
 	return (1);

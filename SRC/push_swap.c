@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: elyzouli <elyzouli@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: mehdi <mehdi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/31 20:33:13 by elyzouli          #+#    #+#             */
-/*   Updated: 2024/01/31 23:39:48 by elyzouli         ###   ########.fr       */
+/*   Updated: 2024/02/01 03:33:17 by mehdi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,26 +27,38 @@ void	ft_checkspaces(char **argv)
 			|| argv[j][i] == '\r' || argv[j][i] == '\v' || argv[j][i++] == '\f')
 			number++;
 		if (ft_strlen(argv[j++]) == number)
-			ft_exit("Error: argument with just spaces");
+			ft_exit("Error:\n");
 	}
 }
 
-
-void main_helper(t_stack **tmp,t_stack **tmp1)
+int	ft_reversesorted(t_stack *a)
 {
-	if (ft_lstsize(*tmp) == 3)
+	while (a)
+	{
+		if (a->next && a->nb < a->next->nb)
+			return (0);
+		a = a->next;
+	}
+	return (1);
+}
+
+void	main_helper(t_stack **tmp, t_stack **tmp1)
+{
+	if (ft_lstsize(*tmp) == 2)
+		sa(tmp, 1);
+	else if (ft_lstsize(*tmp) == 3)
 		ft_sortthree(tmp);
 	else if (ft_lstsize(*tmp) <= 6)
 		ft_sortfive(tmp, tmp1);
-	else if(ft_lstsize(*tmp) > 6)
+	else if (ft_lstsize(*tmp) > 6)
 	{
+		if (ft_reversesorted(*tmp))
+			movethesmallest(tmp);
 		ft_pushnonlistob(tmp, tmp1);
-		printf("test allah \n");
 		ft_9lebche9leb(tmp, tmp1);
 	}
 }
 
-int		*ft_fromstacktoarr(t_stack *stack_A);
 int	main(int argc, char **argv)
 {
 	t_stack	*a;
@@ -58,15 +70,16 @@ int	main(int argc, char **argv)
 	b = NULL;
 	tmp = &a;
 	tmp1 = &b;
-	if (argc < 4)
-		return (ft_exit("Error : Invalid number of arguments\n"), 0);
+	if (argc < 2)
+		return (ft_exit("Error:\n"), 0);
 	ft_checkspaces(&argv[1]);
 	a = parse(a, &argv[1]);
 	if (ft_sorted(a))
-		return (ft_lstclear(tmp), ft_exit("Error: Already sorted\n"), 0);
+		return (ft_lstclear(tmp), ft_exit("Error:\n"), 0);
 	if (!a)
-		return (ft_exit("Allocation failed\n"), 0);
-	main_helper(tmp,tmp1);
+		return (ft_exit("Error\n"), 0);
+	main_helper(tmp, tmp1);
 	ft_lstclear(tmp);
+	ft_lstclear(tmp1);
 	return (0);
 }

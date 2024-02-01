@@ -2,3 +2,7 @@
 .gitignore
 *.txt
 push_swap_visualizer
+checker_linux
+push_swap
+.vscode
+.gitignore

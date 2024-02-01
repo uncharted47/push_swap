@@ -6,7 +6,7 @@
 /*   By: elyzouli <elyzouli@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 16:10:15 by elyzouli          #+#    #+#             */
-/*   Updated: 2024/02/01 02:05:11 by elyzouli         ###   ########.fr       */
+/*   Updated: 2024/02/01 04:00:04 by elyzouli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 # include <stdint.h>
 # include <stdlib.h>
 # include <unistd.h>
-#include <stdio.h>
+# include <stdio.h>
 
 typedef struct s_stack
 {
@@ -57,16 +57,16 @@ int					ft_lstsize(t_stack *lst);
 long long			ft_atoi(char *num);
 t_stack				*ft_lstnew(int content);
 void				ft_lstdelone(t_stack *lst);
-void				sa(t_stack **stack_A);
-void				sb(t_stack **stack_B);
-void				ra(t_stack **stack_A);
-void				rb(t_stack **stack_B);
+void				sa(t_stack **stack_A, int flag);
+void				sb(t_stack **stack_B, int flag);
+void				ra(t_stack **stack_A, int flag);
+void				rb(t_stack **stack_B, int flag);
 void				ss(t_stack **stack_A, t_stack **stack_B);
-void				pa(t_stack **stack_A, t_stack **stack_B);
-void				pb(t_stack **stack_A, t_stack **stack_B);
+void				pa(t_stack **stack_A, t_stack **stack_B, int flag);
+void				pb(t_stack **stack_A, t_stack **stack_B, int flag);
 void				rr(t_stack **stack_A, t_stack **stack_B);
-void				rra(t_stack **stack_A);
-void				rrb(t_stack **stack_B);
+void				rra(t_stack **stack_A, int flag);
+void				rrb(t_stack **stack_B, int flag);
 int					checkvalidnumber(char *number);
 void				ft_lstclear(t_stack **lst);
 void				rrr(t_stack **stack_A, t_stack **stack_B);

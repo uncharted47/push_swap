@@ -6,13 +6,13 @@
 /*   By: elyzouli <elyzouli@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/27 17:07:26 by elyzouli          #+#    #+#             */
-/*   Updated: 2024/02/01 02:04:22 by elyzouli         ###   ########.fr       */
+/*   Updated: 2024/01/31 18:58:45 by elyzouli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker_bonus.h"
 
-void	sa(t_stack **stack_A)
+void	sa(t_stack **stack_A, int flag)
 {
 	int	tmp;
 
@@ -22,24 +22,29 @@ void	sa(t_stack **stack_A)
 	tmp = (*stack_A)->nb;
 	(*stack_A)->nb = (*stack_A)->next->nb;
 	(*stack_A)->next->nb = tmp;
+	if (flag)
+		write(1, "sa\n", 3);
 }
 
-void	sb(t_stack **stack_B)
+void	sb(t_stack **stack_B, int flag)
 {
 	if (ft_morethantwo(*stack_B) < 2)
 		return ;
-	sa(stack_B);
+	sa(stack_B, 0);
+	if (flag)
+		write(1, "sb\n", 3);
 }
 
 void	ss(t_stack **stack_A, t_stack **stack_B)
 {
 	if (ft_morethantwo(*stack_A) < 2 && ft_morethantwo(*stack_B) < 2)
 		return ;
-	sa(stack_A);
-	sb(stack_B);
+	sa(stack_A, 0);
+	sb(stack_B, 0);
+	write(1, "ss\n", 3);
 }
 
-void	ra(t_stack **stack_A)
+void	ra(t_stack **stack_A, int flag)
 {
 	t_stack	*head;
 	t_stack	*last;
@@ -53,11 +58,15 @@ void	ra(t_stack **stack_A)
 	last->next = head;
 	head->prev = last;
 	head->next = NULL;
+	if (flag)
+		write(1, "ra\n", 3);
 }
 
-void	rb(t_stack **stack_B)
+void	rb(t_stack **stack_B, int flag)
 {
 	if (ft_morethantwo(*stack_B) < 2)
 		return ;
-	ra(stack_B);
+	ra(stack_B, 0);
+	if (flag)
+		write(1, "rb\n", 3);
 }
