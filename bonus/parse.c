@@ -6,7 +6,7 @@
 /*   By: elyzouli <elyzouli@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/13 00:37:05 by elyzouli          #+#    #+#             */
-/*   Updated: 2024/01/31 18:58:58 by elyzouli         ###   ########.fr       */
+/*   Updated: 2024/02/01 02:10:11 by elyzouli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,13 +27,13 @@ int	ft_fillstack(t_stack **stack, char *str)
 	if (numb > INT_MAX || !ft_checkdup(*stack, numb) || checkvalidnumber(str))
 	{
 		ft_lstclear(stack);
-		ft_exit("Error: Invalid input\n");
+		ft_exit("KO\n");
 	}
 	a = ft_lstnew(numb);
 	if (!a)
 	{
 		ft_lstclear(stack);
-		ft_exit("Allocation failed\n");
+		ft_exit("KO\n");
 	}
 	ft_lstadd_back(stack, a);
 	return (1);

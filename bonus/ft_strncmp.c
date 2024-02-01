@@ -6,7 +6,7 @@
 /*   By: elyzouli <elyzouli@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 07:00:48 by elyzouli          #+#    #+#             */
-/*   Updated: 2024/01/31 18:58:39 by elyzouli         ###   ########.fr       */
+/*   Updated: 2024/02/01 02:00:18 by elyzouli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,7 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 	while ((str1[i] || str2[i]) && i < n)
 	{
 		if (str1[i] != str2[i])
-		{
-			if ((str1[i] - str2[i]) < 0)
-				return (0);
-			else if ((str1[i] - str2[i]) > 0)
-				return (0);
-		}
+			return(0);
 		i++;
 	}
 	return (1);
