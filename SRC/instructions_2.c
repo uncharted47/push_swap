@@ -6,7 +6,7 @@
 /*   By: elyzouli <elyzouli@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/27 17:09:32 by elyzouli          #+#    #+#             */
-/*   Updated: 2024/02/01 04:05:35 by elyzouli         ###   ########.fr       */
+/*   Updated: 2024/02/01 04:27:19 by elyzouli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 void	rr(t_stack **stack_A, t_stack **stack_B)
 {
+	if (!ft_morethantwo(*stack_A) && !ft_morethantwo(*stack_B))
+		return ;
 	ra(stack_A, 0);
 	ra(stack_B, 0);
 	write(1, "rr\n", 3);
@@ -23,7 +25,7 @@ void	pb(t_stack **stack_A, t_stack **stack_B, int flag)
 {
 	t_stack	*head;
 
-	if (ft_morethantwo(*stack_A) < 2)
+	if (!ft_morethantwo(*stack_A))
 		return ;
 	head = (*stack_A)->next;
 	ft_lstadd_front(stack_B, *stack_A);
@@ -36,7 +38,7 @@ void	pa(t_stack **stack_A, t_stack **stack_B, int flag)
 {
 	t_stack	*head;
 
-	if (ft_morethantwo(*stack_A) < 2)
+	if (!ft_morethantwo(*stack_B))
 		return ;
 	head = (*stack_B)->next;
 	ft_lstadd_front(stack_A, *stack_B);
