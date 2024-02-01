@@ -6,7 +6,7 @@
 /*   By: mehdi <mehdi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 23:21:10 by elyzouli          #+#    #+#             */
-/*   Updated: 2024/02/01 03:25:04 by mehdi            ###   ########.fr       */
+/*   Updated: 2024/02/01 21:25:01 by mehdi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,8 @@ void	ft_sortthree(t_stack **stack_A)
 	t_stack	*head;
 
 	head = *stack_A;
+	if (ft_sorted(*stack_A))
+		return ;
 	if (head->nb > head->next->nb && (head->nb < head->next->next->nb))
 		sa(stack_A, 1);
 	else if (head->nb > head->next->nb && (head->nb > head->next->next->nb)
