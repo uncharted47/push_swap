@@ -6,7 +6,7 @@
 /*   By: elyzouli <elyzouli@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/27 17:07:26 by elyzouli          #+#    #+#             */
-/*   Updated: 2024/02/01 18:36:28 by elyzouli         ###   ########.fr       */
+/*   Updated: 2024/02/01 18:39:32 by elyzouli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	ss(t_stack **stack_A, t_stack **stack_B)
 	sb(stack_B);
 }
 
-void	ra(t_stack **stack_A, int flag)
+void	ra(t_stack **stack_A)
 {
 	t_stack	*head;
 	t_stack	*last;
@@ -55,7 +55,7 @@ void	ra(t_stack **stack_A, int flag)
 	head->next = NULL;
 }
 
-void	rb(t_stack **stack_B, int flag)
+void	rb(t_stack **stack_B)
 {
 	if (ft_morethantwo(*stack_B) < 2)
 		return ;
