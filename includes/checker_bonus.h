@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   checker_bonus.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: elyzouli <elyzouli@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: mehdi <mehdi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 16:10:15 by elyzouli          #+#    #+#             */
-/*   Updated: 2024/02/01 18:37:09 by elyzouli         ###   ########.fr       */
+/*   Updated: 2024/02/01 20:59:04 by mehdi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,17 +37,10 @@ typedef struct s_stack
 	unsigned int	rrr;
 	int				above_mediun;
 	struct s_stack	*target_node;
-
 	struct s_stack	*next;
 }					t_stack;
 
-char				*get_next_line(int fd);
-char				*ft_strjoin(char *s1, char *s2);
-char				*ft_strchr(const char *str, int c);
-char				*ft_strdup(const char *str);
-char				*ft_strcat(char *dest, const char *src);
 char				**ft_split(char *str, char sep);
-char				*ft_strjoin(char *s1, char *s2);
 t_stack				*parse(t_stack *stack_A, char **str);
 void				ft_exit(char *message);
 void				ft_lstadd_back(t_stack **lst, t_stack *new);
@@ -70,13 +63,9 @@ void				rrb(t_stack **stack_B);
 int					checkvalidnumber(char *number);
 void				ft_lstclear(t_stack **lst);
 void				rrr(t_stack **stack_A, t_stack **stack_B);
-void				ft_lstadd_back(t_stack **lst, t_stack *new);
 t_stack				*ft_lstlast(t_stack *lst);
 int					ft_isdigit(int car);
 int					ft_checkdup(t_stack *stack, int number);
-void				ft_lstadd_front(t_stack **lst, t_stack *new);
-int					ft_lstsize(t_stack *lst);
-void				ft_lstiter(t_stack *lst, void (*f)(int));
 int					ft_morethantwo(t_stack *lst);
 t_stack				*ft_lstfirst(t_stack *stack);
 int					ft_strncmp(const char *s1, const char *s2, size_t n);

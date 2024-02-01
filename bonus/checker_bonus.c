@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   checker_bonus.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: elyzouli <elyzouli@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: mehdi <mehdi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 06:53:14 by elyzouli          #+#    #+#             */
-/*   Updated: 2024/02/01 03:59:50 by elyzouli         ###   ########.fr       */
+/*   Updated: 2024/02/01 21:05:14 by mehdi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,25 +45,25 @@ void	ft_checkspaces(char **argv)
 void	ft_testmoves(char *line, t_stack **stack_A, t_stack **stack_B)
 {
 	if (ft_strncmp(line, "ra\n", 2))
-		ra(stack_A, 1);
+		ra(stack_A);
 	else if (ft_strncmp(line, "rb\n", 2))
-		rb(stack_A, 1);
+		rb(stack_B);
 	else if (ft_strncmp(line, "rr\n", 2))
 		rr(stack_A, stack_B);
 	else if (ft_strncmp(line, "rra\n", 3))
-		rra(stack_A, 1);
+		rra(stack_A);
 	else if (ft_strncmp(line, "rrb\n", 3))
-		rrb(stack_A, 1);
+		rrb(stack_B);
 	else if (ft_strncmp(line, "rrr\n", 3))
 		rrr(stack_A, stack_B);
 	else if (ft_strncmp(line, "pa\n", 2))
-		pa(stack_A, stack_B, 1);
+		pa(stack_A, stack_B);
 	else if (ft_strncmp(line, "pb\n", 2))
-		pb(stack_A, stack_B, 1);
+		pb(stack_A, stack_B);
 	else if (ft_strncmp(line, "sa\n", 2))
-		sa(stack_A, 1);
+		sa(stack_A);
 	else if (ft_strncmp(line, "sb\n", 2))
-		sb(stack_B, 1);
+		sb(stack_B);
 	else if (ft_strncmp(line, "ss\n", 2))
 		ss(stack_A, stack_B);
 }

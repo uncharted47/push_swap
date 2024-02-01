@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstmap_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: elyzouli <elyzouli@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: mehdi <mehdi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 18:12:21 by elyzouli          #+#    #+#             */
-/*   Updated: 2024/01/12 06:16:59 by elyzouli         ###   ########.fr       */
+/*   Updated: 2024/02/01 20:59:46 by mehdi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "checker_bonus.h"
 
 t_stack	*ft_lstmap(t_stack *lst, int (*f)(int), void (*del)(void *))
 {

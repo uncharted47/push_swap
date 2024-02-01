@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse.c                                            :+:      :+:    :+:   */
+/*   parse_checker.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: elyzouli <elyzouli@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: mehdi <mehdi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/13 00:37:05 by elyzouli          #+#    #+#             */
-/*   Updated: 2024/02/01 03:52:30 by elyzouli         ###   ########.fr       */
+/*   Updated: 2024/02/01 21:05:29 by mehdi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,19 @@ void	ft_exit(char *message)
 {
 	write(2, message, ft_strlen(message));
 	exit(EXIT_FAILURE);
+}
+
+int	ft_checkdup(t_stack *stack, int number)
+{
+	if (!stack)
+		return (1);
+	while (stack)
+	{
+		if (stack->nb == number)
+			return (0);
+		stack = stack->next;
+	}
+	return (1);
 }
 
 int	ft_fillstack(t_stack **stack, char *str)
@@ -33,22 +46,9 @@ int	ft_fillstack(t_stack **stack, char *str)
 	if (!a)
 	{
 		ft_lstclear(stack);
-		ft_exit("Error:\n");
+		ft_exit("Error\n");
 	}
 	ft_lstadd_back(stack, a);
-	return (1);
-}
-
-int	ft_checkdup(t_stack *stack, int number)
-{
-	if (!stack)
-		return (1);
-	while (stack)
-	{
-		if (stack->nb == number)
-			return (0);
-		stack = stack->next;
-	}
 	return (1);
 }
 
