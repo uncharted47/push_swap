@@ -6,7 +6,7 @@
 /*   By: elyzouli <elyzouli@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/01 12:36:26 by elyzouli          #+#    #+#             */
-/*   Updated: 2024/02/01 22:54:44 by elyzouli         ###   ########.fr       */
+/*   Updated: 2024/02/02 22:55:45 by elyzouli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,9 @@ void				ft_sortthree(t_stack **stack_A);
 void				ft_sort(t_stack **stack_A, t_stack **stack_B);
 void				*ft_calloc(size_t elementCount, size_t elementSize);
 int					ft_lstindex(t_stack *lst);
+void				ft_pushtob_intialisation(t_stack **stack_A, int **arr,
+						int **sorted);
+void				ft_free(t_lis *lis, int *arr);
 void				movethesmallest(t_stack **stack_A);
 void				*ft_memset(void *mem, int c, size_t n);
 int					ft_save(int length, int flag);

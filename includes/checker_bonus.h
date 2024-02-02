@@ -6,7 +6,7 @@
 /*   By: elyzouli <elyzouli@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 16:10:15 by elyzouli          #+#    #+#             */
-/*   Updated: 2024/02/01 22:54:49 by elyzouli         ###   ########.fr       */
+/*   Updated: 2024/02/02 22:53:54 by elyzouli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@
 # include <fcntl.h>
 # include <limits.h>
 # include <stdint.h>
+# include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
-# include <stdio.h>
 
 typedef struct s_stack
 {

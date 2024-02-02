@@ -6,7 +6,7 @@
 /*   By: elyzouli <elyzouli@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 14:51:47 by elyzouli          #+#    #+#             */
-/*   Updated: 2024/01/31 02:00:01 by elyzouli         ###   ########.fr       */
+/*   Updated: 2024/02/02 22:38:01 by elyzouli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,23 @@ t_stack	*findthesmallest(t_stack *stack_A)
 void	ft_initialize(t_lis **lis, int len)
 {
 	(*lis) = malloc(sizeof(t_lis) * 2);
+	if (!*lis)
+		return ;
 	(*lis)->length = (int *)calloc(len, sizeof(int));
+	if (!(*lis)->length)
+	{
+		free(*lis);
+		*lis = NULL;
+		ft_exit("Error\n");
+	}
 	(*lis)->sub = (int *)calloc(len, sizeof(int));
+	if (!(*lis)->sub)
+	{
+		free(*lis);
+		free((*lis)->length);
+		*lis = NULL;
+		ft_exit("Error\n");
+	}
 	(*lis)->i = 0;
 	while ((*lis)->i < len)
 	{
@@ -49,6 +64,8 @@ t_lis	*ft_lengthsub(int len, int *arr)
 	t_lis	*lis;
 
 	ft_initialize(&lis, len);
+	if (!lis)
+		return (NULL);
 	lis->i = 1;
 	while (lis->i < (len))
 	{
@@ -72,6 +89,8 @@ int	*ft_getsubseq(int lengthmax, t_lis *lis, int *arr, int *subseq)
 {
 	int	i;
 
+	if (!subseq)
+		return (NULL);
 	lengthmax = ft_save(lengthmax, 1);
 	i = lengthmax - 1;
 	while (lis->sub[lis->j] != -1)
@@ -91,6 +110,8 @@ int	*ft_lis(int *arr, int len)
 	int		lengthmax;
 
 	lis = ft_lengthsub(len, arr);
+	if (!lis)
+		return (NULL);
 	lis->i = len - 1;
 	lengthmax = lis->length[0];
 	while (lis->i >= 0)
@@ -104,9 +125,7 @@ int	*ft_lis(int *arr, int len)
 	}
 	subseq = ft_getsubseq(lengthmax, lis, arr, (int *)malloc(sizeof(int)
 				* (lengthmax)));
-	free(lis->length);
-	free(lis->sub);
-	free(arr);
-	free(lis);
-	return (subseq);
+	if (!subseq)
+		return (ft_free(lis, arr), NULL);
+	return (ft_free(lis, arr), subseq);
 }

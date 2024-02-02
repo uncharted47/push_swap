@@ -6,7 +6,7 @@
 /*   By: elyzouli <elyzouli@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/27 16:41:29 by elyzouli          #+#    #+#             */
-/*   Updated: 2024/02/01 04:02:53 by elyzouli         ###   ########.fr       */
+/*   Updated: 2024/02/02 22:55:35 by elyzouli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,4 +54,29 @@ void	bubblesort(int *arr, int length)
 			i++;
 		}
 	}
+}
+
+void	ft_pushtob_intialisation(t_stack **stack_A,
+		int **arr, int **sorted)
+{
+	int	len;
+
+	len = ft_lstsize(*stack_A);
+	*arr = ft_lis(ft_fromstacktoarr(*stack_A), len);
+	if (!*arr)
+		ft_exit("Error\n");
+	*sorted = ft_fromstacktoarr(*stack_A);
+	if (!*sorted)
+	{
+		free(arr);
+		ft_exit("Error\n");
+	}
+}
+
+void	ft_free(t_lis *lis, int *arr)
+{
+	free(lis->length);
+	free(lis->sub);
+	free(arr);
+	free(lis);
 }

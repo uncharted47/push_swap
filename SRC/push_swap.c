@@ -6,7 +6,7 @@
 /*   By: elyzouli <elyzouli@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/31 20:33:13 by elyzouli          #+#    #+#             */
-/*   Updated: 2024/02/02 05:27:21 by elyzouli         ###   ########.fr       */
+/*   Updated: 2024/02/02 22:54:59 by elyzouli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ int	main(int argc, char **argv)
 	ft_checkspaces(&argv[1]);
 	a = parse(a, &argv[1]);
 	if (ft_sorted(a))
-		return (ft_lstclear(tmp), ft_exit("Error\n"), 0);
+		return (ft_lstclear(tmp), 0);
 	if (!a)
 		return (ft_exit("Error\n"), 0);
 	main_helper(tmp, tmp1);

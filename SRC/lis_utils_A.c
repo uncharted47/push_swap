@@ -6,7 +6,7 @@
 /*   By: elyzouli <elyzouli@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/27 16:40:08 by elyzouli          #+#    #+#             */
-/*   Updated: 2024/02/01 04:05:00 by elyzouli         ###   ########.fr       */
+/*   Updated: 2024/02/02 22:55:54 by elyzouli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,8 +62,7 @@ void	ft_pushnonlistob(t_stack **stack_A, t_stack **stack_B)
 
 	i = ft_lstsize(*stack_A) / 2;
 	len = ft_lstsize(*stack_A);
-	arr = ft_lis(ft_fromstacktoarr(*stack_A), len);
-	sorted = ft_fromstacktoarr(*stack_A);
+	ft_pushtob_intialisation(stack_A, &arr, &sorted);
 	bubblesort(sorted, len);
 	len = ft_save(0, 0);
 	while ((*stack_A && ft_validlisstack(*stack_A, arr))
@@ -88,6 +87,8 @@ int	*ft_fromstacktoarr(t_stack *stack_A)
 	int	i;
 
 	arr = (int *)malloc(sizeof(int) * (ft_lstsize(stack_A)));
+	if (!arr)
+		return (NULL);
 	i = 0;
 	while (stack_A)
 	{
