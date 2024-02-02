@@ -6,7 +6,7 @@
 /*   By: elyzouli <elyzouli@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 06:53:14 by elyzouli          #+#    #+#             */
-/*   Updated: 2024/02/02 22:59:22 by elyzouli         ###   ########.fr       */
+/*   Updated: 2024/02/03 00:05:14 by elyzouli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	ft_clear(t_stack **stack_A, t_stack **stack_B)
 {
 	ft_lstclear(stack_A);
 	ft_lstclear(stack_B);
-	ft_exit("Error:\n");
+	ft_exit("Error\n");
 }
 
 void	ft_testmoves(char *line, t_stack **stack_A, t_stack **stack_B)
@@ -68,7 +68,7 @@ void	ft_testmoves(char *line, t_stack **stack_A, t_stack **stack_B)
 
 void	ft_finalcheck(t_stack **stack_A, t_stack **stack_B)
 {
-	if (ft_sorted(*stack_A) && *stack_B == NULL)
+	if (ft_sorted(*stack_A) && (ft_lstsize(*stack_B) == 0))
 	{
 		ft_lstclear(stack_A);
 		ft_lstclear(stack_B);
@@ -99,7 +99,7 @@ int	main(int argc, char **argv)
 	if (argc < 2)
 		return (0);
 	if (!a)
-		return (ft_exit("Error:\n"), 0);
+		return (ft_exit("Error\n"), 0);
 	line = get_next_line(0);
 	while (line)
 	{

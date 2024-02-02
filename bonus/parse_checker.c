@@ -6,7 +6,7 @@
 /*   By: elyzouli <elyzouli@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/13 00:37:05 by elyzouli          #+#    #+#             */
-/*   Updated: 2024/02/01 22:57:46 by elyzouli         ###   ########.fr       */
+/*   Updated: 2024/02/03 00:19:25 by elyzouli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,6 +90,8 @@ t_stack	*parse(t_stack *stack_A, char **str)
 	while (str[j])
 	{
 		numbers = ft_split(str[j++], ' ');
+		if (!numbers)
+			return (NULL);
 		while (numbers[i])
 		{
 			ft_fillstack(&stack_A, numbers[i], numbers);
