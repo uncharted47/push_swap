@@ -6,7 +6,7 @@
 /*   By: elyzouli <elyzouli@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 22:37:05 by elyzouli          #+#    #+#             */
-/*   Updated: 2024/01/12 06:58:29 by elyzouli         ###   ########.fr       */
+/*   Updated: 2024/02/03 21:50:51 by elyzouli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ char	*skipwhitespaces(char *n, int *sign)
 	if (*number == '-' || *number == '+')
 	{
 		if (!*(number + 1))
-			return ("2147483649");
+			return ("21474836494");
 		if (*number == '-')
 			*sign = -1;
 		number++;
@@ -44,7 +44,7 @@ long long	ft_atoi(char *num)
 	while ((num[i] >= '0' && num[i] <= '9'))
 	{
 		n = n * 10 + (num[i++] - '0');
-		if (n > INT_MAX && sign == 0)
+		if (n > INT_MAX && sign == -1)
 			return ((long long)INT_MAX + 8);
 		if (n > INT_MAX && sign == 1)
 			return ((long long)INT_MAX + 9);

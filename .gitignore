@@ -7,3 +7,9 @@ push_swap
 .vscode
 .gitignore
 push_swap_tester
+.traces.txt.kate-swp
+pro_checker
+push_swap_test_linux.sh
+push_swap_test.sh
+traces.txt
+.gitignore
