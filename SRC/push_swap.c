@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: elyzouli <elyzouli@student.42.fr>          +#+  +:+       +#+        */
+/*   By: elyzouli <elyzouli@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/31 20:33:13 by elyzouli          #+#    #+#             */
-/*   Updated: 2024/02/03 19:27:28 by elyzouli         ###   ########.fr       */
+/*   Updated: 2024/02/04 00:13:12 by elyzouli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,17 @@ void	ft_checkspaces(char **argv)
 	j = 0;
 	while (argv[j])
 	{
-		if (argv[j][i] == '\t' || argv[j][i] == '\n' || argv[j][i] == ' '
-			|| argv[j][i] == '\r' || argv[j][i] == '\v' || argv[j][i++] == '\f')
+		while (argv[j][i] && (argv[j][i] == '\t' || argv[j][i] == '\n'
+				|| argv[j][i] == ' ' || argv[j][i] == '\r' || argv[j][i] == '\v'
+				|| argv[j][i] == '\f'))
+		{
 			number++;
+			i++;
+		}
 		if (ft_strlen(argv[j++]) == number)
 			ft_exit("Error\n");
+		number = 0;
+		i = 0;
 	}
 }
 

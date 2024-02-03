@@ -6,7 +6,7 @@
 /*   By: elyzouli <elyzouli@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 06:53:14 by elyzouli          #+#    #+#             */
-/*   Updated: 2024/02/03 21:42:42 by elyzouli         ###   ########.fr       */
+/*   Updated: 2024/02/04 00:13:46 by elyzouli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,17 @@ void	ft_checkspaces(char **argv)
 	j = 0;
 	while (argv[j])
 	{
-		if (argv[j][i] == '\t' || argv[j][i] == '\n' || argv[j][i] == ' '
-			|| argv[j][i] == '\r' || argv[j][i] == '\v' || argv[j][i++] == '\f')
+		while (argv[j][i] && (argv[j][i] == '\t' || argv[j][i] == '\n'
+				|| argv[j][i] == ' ' || argv[j][i] == '\r' || argv[j][i] == '\v'
+				|| argv[j][i] == '\f'))
+		{
 			number++;
+			i++;
+		}
 		if (ft_strlen(argv[j++]) == number)
 			ft_exit("Error\n");
+		number = 0;
+		i = 0;
 	}
 }
 
