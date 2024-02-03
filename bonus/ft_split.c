@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mehdi <mehdi@student.42.fr>                +#+  +:+       +#+        */
+/*   By: elyzouli <elyzouli@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 18:46:04 by elyzouli          #+#    #+#             */
-/*   Updated: 2024/02/01 20:59:21 by mehdi            ###   ########.fr       */
+/*   Updated: 2024/02/03 21:04:44 by elyzouli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ char	**failsafe(char **split)
 	size_t	i;
 
 	i = 0;
-	if (split[i])
+	while (split[i])
 	{
 		free(split[i]);
 		split[i] = NULL;

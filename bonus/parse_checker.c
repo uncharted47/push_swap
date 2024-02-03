@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_checker.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: elyzouli <elyzouli@student.42.fr>          +#+  +:+       +#+        */
+/*   By: elyzouli <elyzouli@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/13 00:37:05 by elyzouli          #+#    #+#             */
-/*   Updated: 2024/02/03 19:08:41 by elyzouli         ###   ########.fr       */
+/*   Updated: 2024/02/03 21:07:23 by elyzouli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,29 @@ void	ft_exit(char *message)
 {
 	write(2, message, ft_strlen(message));
 	exit(EXIT_FAILURE);
+}
+
+int	ft_fillstack(t_stack **stack, char *str, char **numbers)
+{
+	t_stack		*a;
+	long long	numb;
+
+	numb = ft_atoi(str);
+	if (numb > INT_MAX || !ft_checkdup(*stack, numb) || checkvalidnumber(str))
+	{
+		failsafe(numbers);
+		ft_lstclear(stack);
+		ft_exit("Error\n");
+	}
+	a = ft_lstnew(numb);
+	if (!a)
+	{
+		ft_lstclear(stack);
+		failsafe(numbers);
+		ft_exit("Error\n");
+	}
+	ft_lstadd_back(stack, a);
+	return (1);
 }
 
 int	ft_checkdup(t_stack *stack, int number)
@@ -28,29 +51,6 @@ int	ft_checkdup(t_stack *stack, int number)
 			return (0);
 		stack = stack->next;
 	}
-	return (1);
-}
-
-int	ft_fillstack(t_stack **stack, char *str, char **numbers)
-{
-	t_stack		*a;
-	long long	numb;
-
-	numb = ft_atoi(str);
-	if (numb > INT_MAX || !ft_checkdup(*stack, numb) || checkvalidnumber(str))
-	{
-		ft_lstclear(stack);
-		free(numbers);
-		ft_exit("Error\n");
-	}
-	a = ft_lstnew(numb);
-	if (!a)
-	{
-		ft_lstclear(stack);
-		free(numbers);
-		ft_exit("Error\n");
-	}
-	ft_lstadd_back(stack, a);
 	return (1);
 }
 
@@ -93,11 +93,8 @@ t_stack	*parse(t_stack *stack_A, char **str)
 		if (!numbers)
 			return (NULL);
 		while (numbers[i])
-		{
-			ft_fillstack(&stack_A, numbers[i], numbers);
-			free(numbers[i++]);
-		}
-		free(numbers);
+			ft_fillstack(&stack_A, numbers[i++], numbers);
+		failsafe(numbers);
 		i = 0;
 	}
 	return (stack_A);

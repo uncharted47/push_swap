@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: elyzouli <elyzouli@student.42.fr>          +#+  +:+       +#+        */
+/*   By: elyzouli <elyzouli@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/13 00:37:05 by elyzouli          #+#    #+#             */
-/*   Updated: 2024/02/03 20:15:20 by elyzouli         ###   ########.fr       */
+/*   Updated: 2024/02/03 21:06:52 by elyzouli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ int	ft_fillstack(t_stack **stack, char *str, char **numbers)
 	numb = ft_atoi(str);
 	if (numb > INT_MAX || !ft_checkdup(*stack, numb) || checkvalidnumber(str))
 	{
-		printf("test %lld \n",numb);
 		failsafe(numbers);
 		ft_lstclear(stack);
 		ft_exit("Error\n");
@@ -94,10 +93,7 @@ t_stack	*parse(t_stack *stack_A, char **str)
 		if (!numbers)
 			return (NULL);
 		while (numbers[i])
-		{
-			ft_fillstack(&stack_A, numbers[i], numbers);
-			// free(numbers[i++]);
-		}
+			ft_fillstack(&stack_A, numbers[i++], numbers);
 		failsafe(numbers);
 		i = 0;
 	}
