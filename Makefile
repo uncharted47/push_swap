@@ -1,7 +1,7 @@
 NAME = push_swap
 NAME_BONUS = checker
 CC = cc
-CFLAGS = -Wall -Wextra -Werror 
+CFLAGS =
 SRC_DIR = SRC
 GNL_DIR = GNL
 BONUS = bonus

@@ -6,7 +6,7 @@
 /*   By: elyzouli <elyzouli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/13 00:37:05 by elyzouli          #+#    #+#             */
-/*   Updated: 2024/02/03 19:12:14 by elyzouli         ###   ########.fr       */
+/*   Updated: 2024/02/03 20:15:20 by elyzouli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,15 +26,16 @@ int	ft_fillstack(t_stack **stack, char *str, char **numbers)
 	numb = ft_atoi(str);
 	if (numb > INT_MAX || !ft_checkdup(*stack, numb) || checkvalidnumber(str))
 	{
+		printf("test %lld \n",numb);
+		failsafe(numbers);
 		ft_lstclear(stack);
-		free(numbers);
 		ft_exit("Error\n");
 	}
 	a = ft_lstnew(numb);
 	if (!a)
 	{
 		ft_lstclear(stack);
-		free(numbers);
+		failsafe(numbers);
 		ft_exit("Error\n");
 	}
 	ft_lstadd_back(stack, a);
@@ -95,9 +96,9 @@ t_stack	*parse(t_stack *stack_A, char **str)
 		while (numbers[i])
 		{
 			ft_fillstack(&stack_A, numbers[i], numbers);
-			free(numbers[i++]);
+			// free(numbers[i++]);
 		}
-		free(numbers);
+		failsafe(numbers);
 		i = 0;
 	}
 	return (stack_A);
